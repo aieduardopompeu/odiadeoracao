@@ -1,0 +1,27 @@
+# robots.txt para O Dia de Oração
+# Permitir acesso a todos os bots de busca
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.odiadeoracao.com/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1
+
+# Bloquear acesso a arquivos administrativos (se houver)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Permitir especificamente para bots importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
