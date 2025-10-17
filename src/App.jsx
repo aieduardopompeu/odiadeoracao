@@ -43,7 +43,7 @@ function Header() {
             <Link to="/noticias" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Notícias</Link>
             <Link to="/multimidia" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Multimídia</Link>
             <Link to="/contato" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Contato</Link>
-            <Link to="/nossa-loja" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Nossa Loja</Link>
+
             <Button size="sm" variant="ghost" className="ml-2">
               <Search className="h-4 w-4" />
             </Button>
@@ -69,7 +69,7 @@ function Header() {
             <Link to="/noticias" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Notícias</Link>
             <Link to="/multimidia" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Multimídia</Link>
             <Link to="/contato" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Contato</Link>
-            <Link to="/nossa-loja" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Nossa Loja</Link>
+
           </nav>
         )}
       </div>
@@ -277,18 +277,6 @@ function NewsletterSection() {
 }
 
 // Componente de Footer
-function NossaLoja() {
-  return (
-    <div className="container mx-auto px-4 py-16 text-center">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">Nossa Loja no TikTok</h1>
-      <p className="text-lg text-gray-700 mb-8">Em breve, você poderá explorar e adquirir produtos exclusivos do Dia de Oração diretamente do nosso TikTok Shop!</p>
-      <img src="https://via.placeholder.com/600x400?text=TikTok+Shop+Em+Breve" alt="TikTok Shop Em Breve" className="mx-auto rounded-lg shadow-lg mb-8" />
-      <a href="#" className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
-        Visitar TikTok &rarr;
-      </a>
-    </div>
-  );
-}
 
 function Footer() {
   return (
@@ -339,7 +327,7 @@ function Footer() {
               <li><Link to="/contato" className="hover:text-blue-400 transition-colors">Contato</Link></li>
               <li><Link to="/privacidade" className="hover:text-blue-400 transition-colors">Política de Privacidade</Link></li>
               <li><Link to="/termos" className="hover:text-blue-400 transition-colors">Termos de Uso</Link></li>
-              <li><Link to="/nossa-loja" className="hover:text-blue-400 transition-colors">Nossa Loja</Link></li>
+
             </ul>
           </div>
           
@@ -364,6 +352,32 @@ function Footer() {
 }
 
 // Página Inicial
+function NewsletterCTA() {
+  return (
+    <section className="py-20 bg-gradient-to-br from-blue-100 to-white">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Receba Inspiração Diária na Sua Caixa de Entrada</h2>
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
+          Assine nossa newsletter e receba a Liturgia Diária, reflexões, notícias e conteúdos exclusivos para fortalecer sua fé.
+        </p>
+        <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+          <input
+            type="email"
+            placeholder="Seu melhor e-mail"
+            className="flex-1 px-5 py-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Assinar Agora &rarr;
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
   return (
     <>
@@ -373,7 +387,7 @@ function HomePage() {
       <FeaturesSection />
       <AdSenseInArticle />
       <LiturgiaPreview />
-      <NewsletterSection />
+      <NewsletterCTA />
       <AdSenseFooter />
     </>
   )
@@ -602,7 +616,7 @@ function App() {
               <Route path="/formacao" element={<Formacao />} />
               <Route path="/multimidia" element={<Multimidia />} />
               <Route path="/noticias" element={<Noticias />} />
-              <Route path="/nossa-loja" element={<NossaLoja />} />
+
               <Route path="/contato" element={<Contato />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/privacidade" element={<PoliticaPrivacidade />} />
