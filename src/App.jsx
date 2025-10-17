@@ -5,6 +5,13 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Cross, BookOpen, Heart, Users, Church, Newspaper, Video, MessageCircle, Menu, X, Search, Facebook, Instagram, Youtube, Twitter } from 'lucide-react'
 import { SEO, LiturgiaSEO, SantoSEO } from './components/SEO'
+import Formacao from './components/Formacao'
+import Multimidia from './components/Multimidia'
+import Noticias from './components/Noticias'
+import Contato from './components/Contato'
+import Sobre from './components/Sobre'
+import PoliticaPrivacidade from './components/PoliticaPrivacidade'
+import TermosDeUso from './components/TermosDeUso'
 import { AdSenseScript, AdSenseHeaderBanner, AdSenseInArticle, AdSenseFooter } from './components/AdSense'
 import { liturgiaData, santosData, oracoesData } from './data/liturgiaData'
 import './App.css'
@@ -35,6 +42,8 @@ function Header() {
             <Link to="/santos" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Santos</Link>
             <Link to="/noticias" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Notícias</Link>
             <Link to="/multimidia" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Multimídia</Link>
+            <Link to="/contato" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Contato</Link>
+            <Link to="/nossa-loja" className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors">Nossa Loja</Link>
             <Button size="sm" variant="ghost" className="ml-2">
               <Search className="h-4 w-4" />
             </Button>
@@ -59,6 +68,8 @@ function Header() {
             <Link to="/santos" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Santos</Link>
             <Link to="/noticias" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Notícias</Link>
             <Link to="/multimidia" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Multimídia</Link>
+            <Link to="/contato" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Contato</Link>
+            <Link to="/nossa-loja" className="block py-2 px-4 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors">Nossa Loja</Link>
           </nav>
         )}
       </div>
@@ -95,10 +106,12 @@ function HeroSection() {
                 Liturgia do Dia
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-2 hover:bg-blue-50 transition-all">
-              <Heart className="mr-2 h-5 w-5" />
-              Enviar Pedido de Oração
-            </Button>
+            <Link to="/contato">
+              <Button size="lg" variant="outline" className="border-2 hover:bg-blue-50 transition-all">
+                <Heart className="mr-2 h-5 w-5" />
+                Enviar Pedido de Oração
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -264,6 +277,19 @@ function NewsletterSection() {
 }
 
 // Componente de Footer
+function NossaLoja() {
+  return (
+    <div className="container mx-auto px-4 py-16 text-center">
+      <h1 className="text-4xl font-bold text-gray-900 mb-4">Nossa Loja no TikTok</h1>
+      <p className="text-lg text-gray-700 mb-8">Em breve, você poderá explorar e adquirir produtos exclusivos do Dia de Oração diretamente do nosso TikTok Shop!</p>
+      <img src="https://via.placeholder.com/600x400?text=TikTok+Shop+Em+Breve" alt="TikTok Shop Em Breve" className="mx-auto rounded-lg shadow-lg mb-8" />
+      <a href="#" className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
+        Visitar TikTok &rarr;
+      </a>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 py-12">
@@ -313,6 +339,7 @@ function Footer() {
               <li><Link to="/contato" className="hover:text-blue-400 transition-colors">Contato</Link></li>
               <li><Link to="/privacidade" className="hover:text-blue-400 transition-colors">Política de Privacidade</Link></li>
               <li><Link to="/termos" className="hover:text-blue-400 transition-colors">Termos de Uso</Link></li>
+              <li><Link to="/nossa-loja" className="hover:text-blue-400 transition-colors">Nossa Loja</Link></li>
             </ul>
           </div>
           
@@ -571,10 +598,15 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/liturgia" element={<LiturgiaPage />} />
               <Route path="/oracoes" element={<OracoesPage />} />
-              <Route path="/formacao" element={<FormacaoPage />} />
-              <Route path="/santos" element={<SantosPage />} />
-              <Route path="/noticias" element={<NoticiasPage />} />
-              <Route path="/multimidia" element={<MultimidiaPage />} />
+              <Route path="/santos" element={<Santos />} />
+              <Route path="/formacao" element={<Formacao />} />
+              <Route path="/multimidia" element={<Multimidia />} />
+              <Route path="/noticias" element={<Noticias />} />
+              <Route path="/nossa-loja" element={<NossaLoja />} />
+              <Route path="/contato" element={<Contato />} />
+              <Route path="/sobre" element={<Sobre />} />
+              <Route path="/privacidade" element={<PoliticaPrivacidade />} />
+              <Route path="/termos" element={<TermosDeUso />} />
             </Routes>
           </main>
           <Footer />
